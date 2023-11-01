@@ -1,0 +1,1 @@
+GET http://localhost/web-servidor/aula9/api/index.php?filename=teste.txt

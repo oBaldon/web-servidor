@@ -1,0 +1,2 @@
+SELECT * FROM alunos LIMIT 10 OFFSET 20;
+Neste exemplo, LIMIT 10 define que você deseja recuperar no máximo 10 registros, e OFFSET 20 indica que a consulta deve começar a partir do 21º registro (pois os registros são indexados a partir de 0).

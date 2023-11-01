@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula 10</title>
+</head>
+<body>
+    <form action="">
+        <label>
+            Posição: <input type="text"id="posicao">
+        </label>
+        <button type="button">Recuperar Nome</button>
+    </form>
+    <p id="nome"></p>
+
+    <script>
+        const p = document.querySelector("p#nome");
+        const input = document.querySelector("input#posicao");
+        const button = document.querySelector("button");
+        const req = new XMLHttpRequest();
+
+        button.addEventListener('click', () => {
+            const pos = input.value;
+            req.open('POST', `/web-servidor/aula10/consulta.php`);
+            req.setRequestHeader('Content-type', 'application/json')
+            req.send(JSON.stringify(input.value));
+        })
+
+        req.addEventListener('readystatechange', () => {
+            if(req.readyState == 4 && req.status == 200){
+                const nomes = JSON.parse(req.responseText);
+                p.textContent = nomes;
+            }
+        });
+        
+    </script>
+</body>
+</html>

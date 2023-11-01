@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula 10</title>
+</head>
+<body>
+    <form action="#">
+        <label>
+            Número 1: <input type="number" id="numero1">
+        </label>
+        <label>
+            Número 2: <input type="number" id="numero2">
+        </label>
+        <label>
+            Operação:
+            <select id="operacao">
+                <option value="soma">+</option>
+                <option value="subtracao">-</option>
+                <option value="multiplicacao">*</option>
+                <option value="divisao">/</option>
+            </select>
+        </label>
+        <button type="button">Calcular</button>
+    </form>
+    <p id="resultado"></p>
+
+    <script>
+        const p = document.querySelector("#resultado");
+        const numero1 = document.querySelector("#numero1");
+        const numero2 = document.querySelector("#numero2");
+        const operacao = document.querySelector("#operacao");
+        const button = document.querySelector("button");
+        const req = new XMLHttpRequest();
+    
+        button.addEventListener('click', () => {
+            const num1 = parseFloat(numero1.value);
+            const num2 = parseFloat(numero2.value);
+            const selectedOperacao = operacao.value;
+    
+            const data = {
+                numero1: num1,
+                numero2: num2,
+                operacao: selectedOperacao
+            };
+
+            req.open('POST', '/web-servidor/aula10/exer/calculadora.php');
+            req.setRequestHeader('Content-type', 'application/json');
+            req.send(JSON.stringify(data));
+    
+            req.addEventListener('readystatechange', () => {
+                if (req.readyState == 4 && req.status == 200) {
+                    const resposta = JSON.parse(req.responseText);
+                    p.textContent = `Resultado: ${resposta.resultado}`;
+                }
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>
