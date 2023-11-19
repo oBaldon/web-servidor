@@ -12,25 +12,25 @@ Até 4 alunos podem compor o grupo de trabalho.
 É permitido o uso de frameworks para o desenvolvimento deste projeto.
 
 ### Diagrama do Banco de Dados
-Tabelas:
+### Tabelas:
 
-usuarios:
-PK login
-senha
-email
+#### usuarios:
+  -PK login
+  -senha
+  -email
 
-listas:
-PK id
-FK usuario_login
-titulo
-data
+#### listas:
+  -PK id
+  -FK usuario_login
+  -titulo
+  -data
 
-itens:
-PK id
-FK lista_id
-nome
-quantidade
-valor (o usuário pode optar por preencher ou não)
+####itens:
+  -PK id
+  -FK lista_id
+  -nome
+  -quantidade
+  -valor (o usuário pode optar por preencher ou não)
 
 ### Itens necessários
 
