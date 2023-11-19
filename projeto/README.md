@@ -14,28 +14,28 @@ Até 4 alunos podem compor o grupo de trabalho.
 ### Diagrama do Banco de Dados
 ### Tabelas:
 
-#### usuarios:
-  -PK login
-  -senha
-  -email
+- usuarios:
+  - PK login
+  - senha
+  - email
 
-#### listas:
-  -PK id
-  -FK usuario_login
-  -titulo
-  -data
+- listas:
+  - PK id
+  - FK usuario_login
+  - titulo
+  - data
 
-####itens:
-  -PK id
-  -FK lista_id
-  -nome
-  -quantidade
-  -valor (o usuário pode optar por preencher ou não)
+- itens:
+  - PK id
+  - FK lista_id
+  - nome
+  - quantidade
+  - valor (o usuário pode optar por preencher ou não)
 
 ### Itens necessários
 
 - (2,5 pontos) Controle de Usuário
-  - Login
+- Login
   - Senha
   - Email
   - CRUD (Criar, Listar, Atualizar e Apagar)
